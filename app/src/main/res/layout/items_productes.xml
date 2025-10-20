@@ -25,14 +25,29 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/ivProducte"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="12dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
 
+            <ImageView
+                android:id="@+id/ivProducte"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="12dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <Button
+                android:id="@+id/botoVeureDetalls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:text="Veure detalls" />
+        </LinearLayout>
         <TextView
             android:id="@+id/tvProductePreu"
             android:layout_width="match_parent"
@@ -40,6 +55,7 @@
             android:text="€9.99"
             android:textSize="16sp"
             android:layout_marginTop="4dp"/>
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -22,7 +22,7 @@ class ProducteAdapter(
         holder.binding.tvProductePreu.text = String.format("€%.2f", producte.preu)
         holder.binding.ivProducte.setImageResource(producte.imagenResId)
 
-        holder.itemView.setOnClickListener {
+        holder.binding.botoVeureDetalls.setOnClickListener() {
             onClickListener?.onClick(position, producte)
         }
     }
