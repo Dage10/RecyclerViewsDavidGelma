@@ -1,20 +1,28 @@
 package com.daviddam.recyclerviewsdavidgelma
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
+import com.daviddam.recyclerviewsdavidgelma.databinding.ActivityDetallsProductesBinding
+
 
 class DetallsProductesActivity : AppCompatActivity() {
+
+    private val binding by lazy { ActivityDetallsProductesBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_detalls_productes)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        setContentView(binding.root)
+
+        val producte = intent.getSerializableExtra(EXTRA_PRODUCTE) as? Producte
+        producte?.let {
+            binding.ivProducteDetalls.setImageResource(it.imagenResId)
+            binding.tvNom.text = it.nom
+            binding.tvPreu.text = String.format("€%.2f", it.preu)
         }
+    }
+
+    companion object {
+        const val EXTRA_PRODUCTE = "extra_producte"
     }
 }
